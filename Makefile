@@ -1,44 +1,29 @@
-ola: clear
-	@echo ==========================
-	@echo      PROGRAMA OLA
-	@echo ==========================
-	@echo Compilando o programa olamundo
-	@gcc olamundo.c -o ola > /dev/null 2>&1
-	@echo Tornando o programa olamundo executável
-	@chmod +x ola > /dev/null 2>&1
-	@echo Executando o programa olamundo
-	@./ola
-	@echo ======================================================
-
-ponteiro:
-	@echo
-	@echo ==========================
-	@echo      PONTEIRO SIMPLES
-	@echo ==========================
-	@echo Compilando o programa ponteiros
-	@gcc ponteiro.c -o ponteiro > /dev/null 2>&1
-	@echo Tornando o arquivo executável
-	@chmod +x ponteiro > /dev/null 2>&1
-	@echo Executando o programa ponteiros
-	@echo ======================================================
-	@echo
-	@./ponteiro
-
-ponteiro_duplo:
-	@echo
-	@echo ==========================
-	@echo      PONTEIRO DUPLO
-	@echo ==========================
-	@echo Compilando o programa ponteiro duplo
-	@gcc ponteiro_duplo.c -o ponteiro_duplo > /dev/null 2>&1
-	@echo Tornando o arquivo executável
-	@chmod +x ponteiro_duplo > /dev/null 2>&1
-	@echo Executando o programa ponteiro duplo
-	@echo ======================================================
-	@echo
-	@./ponteiro_duplo
-
-linkedlist:
+help:	
+	@echo "======================="	
+	@echo "		AJUDA          "
+	@echo "======================="
+	@echo "help  | ajuda"
+	@echo "ola   | executa mensagem de teste"
+	@echo "clean | apaga codigos compilados"
+ola: clean 
+	@echo "======================="
+	@echo  "PROGRAMA OLA"
+	@echo "======================="
+	@echo "Compilando o programa Ola mundo"
+	gcc ponteiro_duplo.c -o ola 
+	@echo "Tornando o programa ola mundo executavel"
+	chmod +x ola
+	@echo "executando o programa olamundo"
+	./ola
+	@echo "======================="
+clean:
+	@echo "======================="
+	@echo "Removendo os progamas compilados"
+	@echo "======================="
+	@echo "Removendo o programa olamundo"
+	rm -f ola
+	@echo "======================="
+linkedlist:clean
 	@echo
 	@echo ==========================
 	@echo      LISTA SIMPLES
@@ -51,46 +36,44 @@ linkedlist:
 	@echo ======================================================
 	@echo
 	@./linkedlist
-
-dlinkedlist:
+doublylinkedlist:clean
 	@echo
 	@echo ==========================
-	@echo      LISTA DUPLA
+	@echo      LISTA DUPLAMENTE LIGADA
 	@echo ==========================
-	@echo Compilando o programa dlinkedlist
-	@gcc --std=c99 -DLOG_USE_COLOR log.h log.c DoublyLinkedList.h DoublyLinkedList.c DoublyLinkedListTest.c -o dlinkedlist
+	@echo Compilando o programa linkedlist
+	@gcc --std=c99 -DLOG_USE_COLOR log.h log.c DoublyLinkedList.h DoublyLinkedList.c DoublyLinkedListTest.c -o doublylinkedlist
 	@echo Tornando o arquivo executável
-	@chmod +x dlinkedlist
-	@echo Executando o programa dlinkedlist
+	@chmod +x doublylinkedlist
+	@echo Executando o programa doublylinkedlist
 	@echo ======================================================
 	@echo
-	@./dlinkedlist
+	@./doublylinkedlist
 
-clear:
+Hash:clean 
 	@echo
 	@echo ==========================
-	@echo APAGANDO TODOS OS PROGRAMAS
+	@echo      TRABALHO HASH 
 	@echo ==========================
-	@echo Removendo o programa ponteiro
-	@rm -f ponteiro > /dev/null 2>&1
-	@echo Removendo o programa ponteiro duplo
-	@rm -f ponteiro_duplo > /dev/null 2>&1
-	@echo Removendo o programa linkedlist
-	@rm -f linkedlist > /dev/null 2>&1
-	@rm -f program.log > /dev/null 2>&1
-	@echo Removendo o programa dlinkedlist
-	@rm -f dlinkedlist > /dev/null 2>&1
-
-help:
-	@echo
-	@echo ==========================
-	@echo      	   AJUDA
-	@echo ==========================
-	@echo "all              | Compila e executa tudo"
-	@echo "ponteiro         | Ponteiro Simples"
-	@echo "ponteiro_duplo   | Ponteiro Duplo"
-	@echo "linkedlist       | Linked List"
-	@echo "dlinkedlist      | Doubly Linked List"
-	@echo "clear            | Apaga todos os programas"
+	@echo Compilando o programa PictureHash
+	@gcc -std=c99  -DLOG_USE_COLOR log.h log.c Hash.h Hash.c DoublyLinkedList.h DoublyLinkedList.c PictureHash.c  -o Hash
+	@echo Tornando o arquivo executável 
+	@chmod +x Hash
+	@echo Executando o programa Hash 
 	@echo ======================================================
 	@echo
+	@./Hash 
+	
+Tree:clean 
+	@echo
+	@echo ==========================
+	@echo      TRABALHO ARVORE 
+	@echo ==========================
+	@echo Compilando o programa aciiTableTree
+	@gcc -std=c99  -DLOG_USE_COLOR log.h log.c aciiTableTree.c LinkedList.h LinkedList.c -o Tree
+	@echo Tornando o arquivo executável 
+	@chmod +x Tree
+	@echo Executando o programa Tree
+	@echo ======================================================
+	@echo
+	@./Tree
